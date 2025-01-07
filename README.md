@@ -61,12 +61,16 @@ plt.scatter(X[Y==1,0], X[Y==1,1], color='r')
 plt.show()
 ```
 
+![knn](https://github.com/arqady01/machine-learning/blob/main/img/knn.png)
+
 接着不妨事先有个大概，比如一个新的点是(2,3)
 
 ```python
 x = np.array([2,3]) # 待预测的肿瘤
 plt.scatter(x[0],x[1],color='b') # 在图中的位置
 ```
+
+![距离](https://github.com/arqady01/machine-learning/blob/main/img/knn2.png)
 
 第二步，计算距离
 
