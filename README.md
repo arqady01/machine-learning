@@ -30,7 +30,7 @@ graph LR
 
 - 监督学习
     - 解释：给机器的训练数据带有“标记”或者“答案“
-    - k近邻
+    - [k近邻](https://github.com/arqady01/machine-learning/blob/main/KNN.md "页内跳转至KNN算法")
     - 线性回归和多项式回归
     - 逻辑回归
     - SVM
