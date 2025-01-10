@@ -80,6 +80,8 @@ kNN_classifier.fit(X, Y) # 拟合
 kNN_classifier.predict(x) # 预测待处理点x
 ```
 
+> n_neighbors 表示使用的邻居数量，默认为5
+
 ## 训练数据集
 
 ```python
