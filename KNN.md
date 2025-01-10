@@ -136,3 +136,13 @@ def train_test_split(X, y, test_ratio=0.2, seed=None):
 ```python
 X_train, X_test, y_train, y_test = sklearn.model_selection(iris.data, iris.target, test_size=0.2, random_state=22)
 ```
+
+## 数据归一化
+
+主要消除量纲的影响，比如肿瘤受肿瘤块和发现天数影响，而天数的量级会比大小影响大很多。
+
+解决办法：将所有数据映射到统一尺度
+
+最值归一化：把所有数据映射到0-1之间
+
+$$ x_{scale} = \frac{x - x_{min}}{x_{max} - x_{min}} $$
