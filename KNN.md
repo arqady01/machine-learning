@@ -143,6 +143,13 @@ X_train, X_test, y_train, y_test = sklearn.model_selection(iris.data, iris.targe
 
 解决办法：将所有数据映射到统一尺度
 
-最值归一化：把所有数据映射到0-1之间
+- 最值归一化：把所有数据映射到0-1之间
 
 $$ x_{scale} = \frac{x - x_{min}}{x_{max} - x_{min}} $$
+
+适用于有明显边界的情况，比如考试分数，如果没有明显边界比如全国人民收入，就不适合最值归一化
+
+- 均值方差归一化：把所有数据归一到均值为0方差为1的分布中
+
+$$ x_{scale} = \frac{x - x_{mean}}{s} $$
+
