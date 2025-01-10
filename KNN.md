@@ -79,3 +79,34 @@ kNN_classifier = KNeighborsClassifier(n_neighbors=3) # 用默认构造来创建�
 kNN_classifier.fit(X, Y) # 拟合
 kNN_classifier.predict(x) # 预测待处理点x
 ```
+
+## 训练数据集
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn import datasets
+
+iris = datasets.load_iris() # 加载鸢尾花的数据
+X = iris.data # 数据集
+y = iris.target # 特征集
+X.shape # 输出：(150, 4)，即150行4列
+y.shape # 输出：(150,)，即150行1列
+
+# 数据拆分：将数据集的80%用于训练20%用于验证，防止数据排好序，所以随机化
+
+# 又因为X和Y是对应的，所以不能对X随机化后再对y随机化
+
+# 解决方案：将所有数据的编号随机化
+
+shuffle_index = np.random.permutation(len(X)) # 生成随机化序列排列
+test_size = int(len(X) * 0.2) # 验证（测试）数据集的大小为数据集的20%个
+test_index = shuffle_index[:test_size] # 将数据的前20%用于验证
+train_index = shuffle_index[test_size:] # 将数据的后80%用于训练
+
+# 构建训练集和测试集
+X_train = X[train_index]
+y_train = y[train_index]
+X_test = X[test_index]
+y_test = y[test_index]
+```
