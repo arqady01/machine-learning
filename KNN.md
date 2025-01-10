@@ -82,7 +82,7 @@ kNN_classifier.predict(x) # 预测待处理点x
 
 > n_neighbors 表示使用的邻居数量，默认为5
 
-## 训练数据集
+## 划分数据集
 
 ```python
 import numpy as np
@@ -111,4 +111,28 @@ X_train = X[train_index]
 y_train = y[train_index]
 X_test = X[test_index]
 y_test = y[test_index]
+```
+
+封装成函数形式：
+
+```python
+def train_test_split(X, y, test_ratio=0.2, seed=None):
+    # 将数据X和y按照test_radio分割成X_train，X_test，y_train，y_test
+    if seed:
+        np.random.seed(seed)
+    shuffled_index = np.random.permutation(len(X))
+    test_size = int(len(X) * test_ratio)
+    test_index = shuffled_index[:test_size]
+    train_index = shuffled_index[test_size:]
+
+    X_train = X[train_index]
+    y_train = y[train_index]
+    X_test = X[test_index]
+    y_test = y[test_index]
+```
+
+调用api形式
+
+```python
+X_train, X_test, y_train, y_test = sklearn.model_selection(iris.data, iris.target, test_size=0.2, random_state=22)
 ```
